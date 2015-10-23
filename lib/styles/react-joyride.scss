@@ -1,70 +1,70 @@
-$joyride-color: #f04 !default;
-$joyride-zindex: 1500 !default;
-$joyride-overlay-color: rgba(#000, 0.5) !default;
+$tooltipper-color: #f04 !default;
+$tooltipper-zindex: 1500 !default;
+$tooltipper-overlay-color: rgba(#000, 0.5) !default;
 
-$joyride-beacon-color: $joyride-color !default;
-$joyride-beacon-size: 36px !default;
+$tooltipper-beacon-color: $tooltipper-color !default;
+$tooltipper-beacon-size: 36px !default;
 
-$joyride-hole-border-radius: 4px !default;
-$joyride-hole-shadow: 0 0 15px rgba(#000, 0.5) !default;
+$tooltipper-hole-border-radius: 4px !default;
+$tooltipper-hole-shadow: 0 0 15px rgba(#000, 0.5) !default;
 
-$joyride-tooltip-arrow-size: 36px !default;
-$joyride-tooltip-bg-color: #fff !default;
-$joyride-tooltip-border-radius: 8px !default;
-$joyride-tooltip-color: #555 !default;
-$joyride-tooltip-font-size: 16px !default;
-$joyride-tooltip-padding: 20px !default;
-$joyride-tooltip-shadow: drop-shadow(2px 4px 4px rgba(#000, 0.3)) !default;
-$joyride-tooltip-width: (290px, 360px, 450px) !default;
+$tooltipper-tooltip-arrow-size: 36px !default;
+$tooltipper-tooltip-bg-color: #fff !default;
+$tooltipper-tooltip-border-radius: 8px !default;
+$tooltipper-tooltip-color: #555 !default;
+$tooltipper-tooltip-font-size: 16px !default;
+$tooltipper-tooltip-padding: 20px !default;
+$tooltipper-tooltip-shadow: drop-shadow(2px 4px 4px rgba(#000, 0.3)) !default;
+$tooltipper-tooltip-width: (290px, 360px, 450px) !default;
 
-$joyride-header-color: $joyride-tooltip-color !default;
-$joyride-header-font-size: 20px !default;
-$joyride-header-border-color: $joyride-color !default;
-$joyride-header-border-width: 1px !default;
+$tooltipper-header-color: $tooltipper-tooltip-color !default;
+$tooltipper-header-font-size: 20px !default;
+$tooltipper-header-border-color: $tooltipper-color !default;
+$tooltipper-header-border-width: 1px !default;
 
-$joyride-button-bg-color: $joyride-color !default;
-$joyride-button-color: #fff !default;
-$joyride-button-radius: 4px !default;
+$tooltipper-button-bg-color: $tooltipper-color !default;
+$tooltipper-button-color: #fff !default;
+$tooltipper-button-radius: 4px !default;
 
-$joyride-back-button-color: $joyride-color !default;
+$tooltipper-back-button-color: $tooltipper-color !default;
 
-$joyride-skip-button-color: #ccc !default;
+$tooltipper-skip-button-color: #ccc !default;
 
-$joyride-tooltip-arrow-height: $joyride-tooltip-arrow-size / 2;
-$joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-arrow-size * 0 + 1)) / 16;
+$tooltipper-tooltip-arrow-height: $tooltipper-tooltip-arrow-size / 2;
+$tooltipper-tooltip-arrow-scale: ($tooltipper-tooltip-arrow-size / ($tooltipper-tooltip-arrow-size * 0 + 1)) / 16;
 
-@function joyride-arrow($location: top) {
-  $height: $joyride-tooltip-arrow-height;
-  $width: $joyride-tooltip-arrow-size;
+@function tooltipper-arrow($location: top) {
+  $height: $tooltipper-tooltip-arrow-height;
+  $width: $tooltipper-tooltip-arrow-size;
   $rotate: '0';
 
   @if $location == bottom {
     $rotate: '180 8 4';
   } @else if $location == left {
-    $height: $joyride-tooltip-arrow-size;
-    $width: $joyride-tooltip-arrow-height;
+    $height: $tooltipper-tooltip-arrow-size;
+    $width: $tooltipper-tooltip-arrow-height;
     $rotate: '270 8 8';
   } @else if $location == right {
-    $height: $joyride-tooltip-arrow-size;
-    $width: $joyride-tooltip-arrow-height;
+    $height: $tooltipper-tooltip-arrow-size;
+    $width: $tooltipper-tooltip-arrow-height;
     $rotate: '90 4 4';
   }
 
-  @return "data:image/svg+xml,%3Csvg%20width%3D%22#{$width}%22%20height%3D%22#{$height}%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22#{$joyride-tooltip-bg-color}%22%20transform%3D%22scale%28#{$joyride-tooltip-arrow-scale}%29%20rotate%28#{$rotate}%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E";
+  @return "data:image/svg+xml,%3Csvg%20width%3D%22#{$width}%22%20height%3D%22#{$height}%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22#{$tooltipper-tooltip-bg-color}%22%20transform%3D%22scale%28#{$tooltipper-tooltip-arrow-scale}%29%20rotate%28#{$rotate}%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E";
 }
 
-.joyride {
+.tooltipper {
 
   &-beacon {
     display: inline-block;
-    height: $joyride-beacon-size;
+    height: $tooltipper-beacon-size;
     position: relative;
-    width: $joyride-beacon-size;
-    z-index: $joyride-zindex;
+    width: $tooltipper-beacon-size;
+    z-index: $tooltipper-zindex;
 
     .inner {
-      animation: joyride-beacon-inner 1.2s infinite ease-in-out;
-      background-color: $joyride-beacon-color;
+      animation: tooltipper-beacon-inner 1.2s infinite ease-in-out;
+      background-color: $tooltipper-beacon-color;
       border-radius: 50%;
       display: block;
       height: 50%;
@@ -77,9 +77,9 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
     }
 
     .outer {
-      animation: joyride-beacon-outer 1.2s infinite ease-in-out;
-      background-color: rgba($joyride-beacon-color, 0.2);
-      border: ($joyride-beacon-size / 18) solid $joyride-beacon-color;
+      animation: tooltipper-beacon-outer 1.2s infinite ease-in-out;
+      background-color: rgba($tooltipper-beacon-color, 0.2);
+      border: ($tooltipper-beacon-size / 18) solid $tooltipper-beacon-color;
       border-radius: 50%;
       display: block;
       height: 100%;
@@ -100,58 +100,58 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
     position: absolute;
     right: 0;
     top: 0;
-    z-index: $joyride-zindex;
+    z-index: $tooltipper-zindex;
   }
 
   &-hole {
-    border-radius: $joyride-hole-border-radius;
-    box-shadow: 0 0 0 9999px $joyride-overlay-color, $joyride-hole-shadow;
+    border-radius: $tooltipper-hole-border-radius;
+    box-shadow: 0 0 0 9999px $tooltipper-overlay-color, $tooltipper-hole-shadow;
     position: absolute;
 
     &.safari {
-      box-shadow: 0 0 999px 9999px $joyride-overlay-color, $joyride-hole-shadow;
+      box-shadow: 0 0 999px 9999px $tooltipper-overlay-color, $tooltipper-hole-shadow;
     }
   }
 
   &-tooltip {
-    background-color: $joyride-tooltip-bg-color;
-    border-radius: $joyride-tooltip-border-radius;
-    color: $joyride-tooltip-color;
+    background-color: $tooltipper-tooltip-bg-color;
+    border-radius: $tooltipper-tooltip-border-radius;
+    color: $tooltipper-tooltip-color;
     cursor: default;
-    filter: $joyride-tooltip-shadow;
+    filter: $tooltipper-tooltip-shadow;
     opacity: 0;
-    padding: $joyride-tooltip-padding;
+    padding: $tooltipper-tooltip-padding;
     transform: translate3d(0, 0, 0);
-    width: nth($joyride-tooltip-width, 1);
-    z-index: $joyride-zindex + 10;
+    width: nth($tooltipper-tooltip-width, 1);
+    z-index: $tooltipper-zindex + 10;
 
     @media screen and (min-width: 480px) {
-      width: nth($joyride-tooltip-width, 2);
+      width: nth($tooltipper-tooltip-width, 2);
     }
 
     @media screen and (min-width: 960px) {
-      width: nth($joyride-tooltip-width, 3);
+      width: nth($tooltipper-tooltip-width, 3);
     }
 
     &.animate {
-      animation: joyride-tooltip 0.4s forwards;
+      animation: tooltipper-tooltip 0.4s forwards;
       animation-timing-function: cubic-bezier(0, 1.05, 0.55, 1.18);
     }
 
     header {
-      border-bottom: $joyride-header-border-width solid $joyride-header-border-color;
+      border-bottom: $tooltipper-header-border-width solid $tooltipper-header-border-color;
       margin-bottom: 12px;
       padding-bottom: 6px;
       position: relative;
 
       h4 {
-        color: $joyride-header-color;
-        font-size: $joyride-header-font-size;
+        color: $tooltipper-header-color;
+        font-size: $tooltipper-header-font-size;
         margin: 0;
       }
 
       a {
-        color: $joyride-tooltip-color;
+        color: $tooltipper-tooltip-color;
         font-size: 2.5rem;
         line-height: 0.7;
         position: absolute;
@@ -162,7 +162,7 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
     }
 
     main {
-      font-size: $joyride-tooltip-font-size;
+      font-size: $tooltipper-tooltip-font-size;
       margin-bottom: 18px;
     }
 
@@ -170,25 +170,25 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
       text-align: right;
 
       .primary {
-        background-color: $joyride-button-bg-color;
-        border-radius: $joyride-button-radius;
-        color: $joyride-button-color;
+        background-color: $tooltipper-button-bg-color;
+        border-radius: $tooltipper-button-radius;
+        color: $tooltipper-button-color;
         padding: 6px 12px;
         text-decoration: none;
         transition: background-color 0.2s ease-in-out;
 
         &:hover {
-          background-color: lighten($joyride-button-bg-color, 6);
+          background-color: lighten($tooltipper-button-bg-color, 6);
         }
       }
 
       .secondary {
-        color: $joyride-back-button-color;
+        color: $tooltipper-back-button-color;
         margin-right: 10px;
       }
 
       .skip {
-        color: $joyride-skip-button-color;
+        color: $tooltipper-skip-button-color;
         float: left;
         margin-right: 10px;
       }
@@ -203,28 +203,28 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
     &.bottom,
     &.bottom-left,
     &.bottom-right {
-      margin-top: $joyride-tooltip-arrow-height;
+      margin-top: $tooltipper-tooltip-arrow-height;
 
       .triangle {
-        background-image: url(joyride-arrow(bottom));
-        height: $joyride-tooltip-arrow-height;
+        background-image: url(tooltipper-arrow(bottom));
+        height: $tooltipper-tooltip-arrow-height;
         left: 50%;
-        top: -($joyride-tooltip-arrow-height - 2);
-        width: $joyride-tooltip-arrow-size;
+        top: -($tooltipper-tooltip-arrow-height - 2);
+        width: $tooltipper-tooltip-arrow-size;
       }
     }
 
     &.top,
     &.top-left,
     &.top-right {
-      margin-bottom: $joyride-tooltip-arrow-height;
+      margin-bottom: $tooltipper-tooltip-arrow-height;
 
       .triangle {
-        background-image: url(joyride-arrow(top));
-        bottom: -($joyride-tooltip-arrow-height - 2);
-        height: $joyride-tooltip-arrow-height;
+        background-image: url(tooltipper-arrow(top));
+        bottom: -($tooltipper-tooltip-arrow-height - 2);
+        height: $tooltipper-tooltip-arrow-height;
         left: 50%;
-        width: $joyride-tooltip-arrow-size;
+        width: $tooltipper-tooltip-arrow-size;
       }
     }
 
@@ -262,30 +262,30 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
     }
 
     &.left {
-      margin-right: $joyride-tooltip-arrow-height;
+      margin-right: $tooltipper-tooltip-arrow-height;
 
       .triangle {
-        background-image: url(joyride-arrow(left));
-        height: $joyride-tooltip-arrow-size;
-        right: -($joyride-tooltip-arrow-height - 2);
-        width: $joyride-tooltip-arrow-height;
+        background-image: url(tooltipper-arrow(left));
+        height: $tooltipper-tooltip-arrow-size;
+        right: -($tooltipper-tooltip-arrow-height - 2);
+        width: $tooltipper-tooltip-arrow-height;
       }
     }
 
     &.right {
-      margin-left: $joyride-tooltip-arrow-height;
+      margin-left: $tooltipper-tooltip-arrow-height;
 
       .triangle {
-        background-image: url(joyride-arrow(right));
-        height: $joyride-tooltip-arrow-size;
-        left: -($joyride-tooltip-arrow-height - 2);
-        width: $joyride-tooltip-arrow-height;
+        background-image: url(tooltipper-arrow(right));
+        height: $tooltipper-tooltip-arrow-size;
+        left: -($tooltipper-tooltip-arrow-height - 2);
+        width: $tooltipper-tooltip-arrow-height;
       }
     }
   }
 }
 
-@keyframes joyride-tooltip {
+@keyframes tooltipper-tooltip {
   0% {
     transform: scale(0.1);
   }
@@ -296,7 +296,7 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
   }
 }
 
-@keyframes joyride-beacon-inner {
+@keyframes tooltipper-beacon-inner {
   20% {
     opacity: 0.9;
   }
@@ -306,7 +306,7 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
   }
 }
 
-@keyframes joyride-beacon-outer {
+@keyframes tooltipper-beacon-outer {
   0% {
     transform: scale(1);
   }
